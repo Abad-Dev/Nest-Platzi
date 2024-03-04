@@ -13,7 +13,7 @@ export class ProductsController {
     }
 
     @Get(':id')
-    getProduct(@Param('id', ParseIntPipe) id: number) {
+    getProduct(@Param('id', ParseIntPipe) id: string) {
         return this.productsService.findOne(id);
     }
 
@@ -23,12 +23,12 @@ export class ProductsController {
     }
 
     @Put(':id')
-    updateProduct(@Param('id') id: number, @Body() payload: UpdateProductDto) {
+    updateProduct(@Param('id') id: string, @Body() payload: UpdateProductDto) {
         return this.productsService.updateProduct(id, payload);
     }
 
     @Delete(':id')
-    deleteProduct(@Param('id') id: number) {
+    deleteProduct(@Param('id') id: string) {
         return this.productsService.deleteProduct(id);
     }
 }
